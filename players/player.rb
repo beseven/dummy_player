@@ -6,14 +6,14 @@ class Player
 
   def take_turn(state, guesses)
     # MyHelper.answer
-    vowels = ["e", "a", "i", "o", "u", "y"]
-    consonants =  ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x"]
-    possible_vowels = vowels - guesses
-    possible_consonants = consonants - guesses
+    most_frequent = ["e", "t", "a", "o", "i", "n"]
+    less_frequent =  ["s", "h", "r", "d", "l", "c", "u", "m", "w", "f", "g", "y", "p", "b", "v", "k", "j", "x", "q", "z"]
+    possible_freq = most_frequent - guesses
+    possible_less_freq = less_frequent - guesses
     
-    vowel = possible_vowels.sample unless possible_vowels.empty?
-    consonant = possible_consonants.sample unless possible_consonants.empty?
+    frequent = possible_freq.shift unless possible_freq.empty?
+    less_frequent = possible_less_freq.sample unless possible_less_freq.empty?
     
-    return vowel || consonant
+    return frequent || less_frequent
   end
 end
