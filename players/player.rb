@@ -10,6 +10,6 @@ class Player
     consonants =  ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x"]
     current_vowel = (guesses.size > vowels.size) ? (guesses - vowels).sample : (vowels - guesses).sample
     current_consonant = (guesses.size > consonants.size) ? (guesses - consonants).sample : (consonants - guesses).sample
-    return [current_vowel, current_consonant].sample 
+    return Array.new(current_vowel, current_consonant).sample
   end
 end
